@@ -16,13 +16,11 @@ const createWindow = () => {
             //允许html页面上的javascipt代码访问nodejs 环境api代码的能力（与node集成的意思）
         }
     })
-    // console.log(__dirname);
-    // if (process.env.NODE_ENV != "dev") {
-    //     win.loadFile(path.join(__dirname, "../index.html"));
-    // } else {
-    //     win.loadURL(process.env.VITE_DEV_SERVER_URL as string)
-    // }
-    win.loadFile(path.join(__dirname, "../dist/index.html"));
+    if (process.env.NODE_ENV != "dev") {
+        win.loadFile(path.join(__dirname, "../dist/index.html"));
+    } else {
+        win.loadURL(process.env.VITE_DEV_SERVER_URL as string)
+    }
 }
 //在Electron完成初始化时被触发
 app.whenReady().then(createWindow)

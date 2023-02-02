@@ -4,11 +4,12 @@
   "version": "0.0.0",
   "main": "dist-electron/main.js",
   "scripts": {
-    "dev": "vite",
+    "dev": "cross-env NODE_ENV=dev vite",
     "build": "vue-tsc --noEmit && vite build  &&  electron-builder",
     "preview": "vite preview"
   },
   "dependencies": {
+    "cross-env": "^7.0.3",
     "vue": "^3.2.45"
   },
   "devDependencies": {
